@@ -5,7 +5,7 @@ from werkzeug.utils import secure_filename
 from models import User
 from sqlalchemy import exc
 
-from datetime import datetime
+import datetime
 import os
 
 @app.route("/")
@@ -26,7 +26,7 @@ def profile():
                 email = newProfileForm.email.data
                 location = newProfileForm.location.data
                 bio = os.path.join(os.getcwd(),bio_path,email+".txt")
-                created = str(datetime.now()).split()[0]
+                created = str(datetime.datetime.now()).split()[0]
                 
                 photo = newProfileForm.photo.data
                 photo_name = secure_filename(photo.filename)
@@ -72,8 +72,18 @@ def inidi_profile(userid):
     if user is None:
         return redirect(url_for('home'))
         
+    c_y = int(user.created_on.split("-")[0])
+    c_m = int(user.created_on.split("-")[1])
+    c_d = int(user.created_on.split("-")[2])
+    
+    user.created_on = format_date_joined(c_y, c_m, c_d)
+    
     bio = read_file(user.bio)
     return render_template("profile.html", user=user, bio=bio)
+
+def format_date_joined(yy,mm,dd):
+    return datetime.date(yy,mm,dd).strftime("%B, %d,%Y")
+
 
 def write_to(file_path, data):
     with open(file_path, "w") as stream:

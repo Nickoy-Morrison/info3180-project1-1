@@ -12,10 +12,11 @@
             <span class="blk">{{user.firstname+" "+user.lastname}}</span>
             <span class="blk">{{user.email}}</span>
             <span class="blk">{{user.location}}</span>
-            <span class="blk">{{user.created_on}}</span>
+            <span class="blk">Joined on {{user.created_on}}</span>
         </div>
     </div>
-<div class="card-body"> 
+<div class="card-body">
+        <h5 class"card-title">About me</h5>
         <p calss="card-text">{{ bio }}</p>
         <div class="btn-container">
             <a href="#" class="center col-md-6 btn btn-success">Send messaage</a>
