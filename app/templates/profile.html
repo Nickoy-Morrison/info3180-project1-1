@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}" type="text/css" />
+{% endblock %}
+
+{% block main %}
+<div class="card center">
+    <div class="row">
+        <img class="card-img-top pro_img" src="{{ url_for('static', filename='profile_photo/'+user.photo) }}"/>
+        <div class="col">
+            <span class="blk">{{user.firstname+" "+user.lastname}}</span>
+            <span class="blk">{{user.email}}</span>
+            <span class="blk">{{user.location}}</span>
+            <span class="blk">{{user.created_on}}</span>
+        </div>
+    </div>
+<div class="card-body"> 
+        <p calss="card-text">{{ bio }}</p>
+        <div class="btn-container">
+            <a href="#" class="center col-md-6 btn btn-success">Send messaage</a>
+            <a href="#" class="center col-md-6 btn btn-primary">Follow</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
