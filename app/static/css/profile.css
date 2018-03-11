@@ -1,0 +1,26 @@
+.pro_img{
+    width:140px;
+    height: 80px;
+    margin-top: 5px
+}
+
+.card{
+    width: 22rem;
+}
+
+.center{
+    margin: 0 auto;
+}
+
+.btn{
+    width:47%;
+}
+
+.inline{
+    display: inline;
+}
+
+.btn-container{
+    text-align: center;
+}
+

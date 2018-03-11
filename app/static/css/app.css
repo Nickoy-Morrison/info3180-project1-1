@@ -1,3 +1,28 @@
 body {
     padding-top: 5rem;
 }
+
+.pro_pic{
+    width:90px;
+    height:90px;
+}
+
+.blk{
+    display: block;
+}
+
+.pro-data{
+    max-width: 30%;
+}
+
+.view-btn{
+    height: 30px;
+    width: 150px;
+    text-align: center;
+    border-radius: 7px;
+    color: white;
+}
+
+.row{
+    margin-left: 15px;
+}
