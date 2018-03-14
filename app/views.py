@@ -1,4 +1,4 @@
-from app import app, db, bio_path, allowed_exts
+from app import app, db, allowed_exts
 from flask import render_template, request, url_for, redirect, flash
 from forms import NewProfileForm
 from werkzeug.utils import secure_filename
@@ -25,7 +25,7 @@ def profile():
                 gender = newProfileForm.gender.data
                 email = newProfileForm.email.data
                 location = newProfileForm.location.data
-                bio = os.path.join(os.getcwd(),bio_path,email+".txt")
+                bio = newProfileForm.bio.data
                 created = str(datetime.datetime.now()).split()[0]
                 
                 photo = newProfileForm.photo.data
@@ -36,15 +36,11 @@ def profile():
                 db.session.add(user)
                 db.session.commit()
                 
-                write_to(bio, newProfileForm.bio.data)
                 photo.save(os.path.join(app.config['UPLOAD_FOLDER'],photo_name))
                 
                 flash("Profile Added", "success")
                 return redirect(url_for("profiles"))
-            except exc.IntegrityError as e:
-                db.session.rollback()
-                flash("Email address already in use", "danger")
-                return render_template("create_new_profile.html", newProfileForm = newProfileForm)
+            
             except Exception as e:
                 db.session.rollback()
                 flash("Internal Error", "danger")
@@ -78,16 +74,11 @@ def inidi_profile(userid):
     
     user.created_on = format_date_joined(c_y, c_m, c_d)
     
-    bio = read_file(user.bio)
-    return render_template("profile.html", user=user, bio=bio)
+    return render_template("profile.html", user=user)
 
 def format_date_joined(yy,mm,dd):
     return datetime.date(yy,mm,dd).strftime("%B, %d,%Y")
 
-
-def write_to(file_path, data):
-    with open(file_path, "w") as stream:
-        stream.write(data)
 
 def read_file(filename):
     data = ""

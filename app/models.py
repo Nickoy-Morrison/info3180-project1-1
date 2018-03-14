@@ -5,9 +5,9 @@ class User(db.Model):
     firstname = db.Column(db.String(80))
     lastname = db.Column(db.String(80))
     gender = db.Column(db.String(10))
-    email = db.Column(db.String(80), unique=True)
+    email = db.Column(db.String(80))
     location = db.Column(db.String(80))
-    bio = db.Column(db.String(200))
+    bio = db.Column(db.Text(300))
     created_on = db.Column(db.String(12))
     photo = db.Column(db.String(80))
     

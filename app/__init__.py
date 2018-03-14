@@ -9,6 +9,5 @@ app.config['UPLOAD_FOLDER'] = './app/static/profile_photo'
 db = SQLAlchemy(app)
 
 allowed_exts = ["jpg", "jpeg", "png"]
-bio_path = "app/static/bios"
 
 from app import views
