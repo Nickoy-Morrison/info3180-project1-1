@@ -1,0 +1,8 @@
+#python compilation extension
+
+*.py[cod]
+*.py.class
+
+#virtual environment
+venv/
+.venv/
