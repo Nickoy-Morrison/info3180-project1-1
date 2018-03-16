@@ -2,7 +2,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from subprocess import call
 
-call(["sudo", "service" ,"postgresql", "start"])
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "SuperSecretKey"
 app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://info2180-project1:password123@localhost/profilebook"
