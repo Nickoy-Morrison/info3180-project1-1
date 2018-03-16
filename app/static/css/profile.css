@@ -1,5 +1,5 @@
 .pro_img{
-    width:140px;
+    width: 140px;
     height: 80px;
     margin-top: 5px
 }
@@ -24,3 +24,6 @@
     text-align: center;
 }
 
+.top-info{
+    padding: 30px;
+}

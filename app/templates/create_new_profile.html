@@ -6,39 +6,42 @@
 
 {% block main %}
 {% include "flash_messages.html" %}
-<h1 id="page-title">Add Profile</h1> 
-<form method = "POST" action="{{ url_for('profile') }}" enctype="multipart/form-data">
-    {{newProfileForm.csrf_token}}
-    <div class="containers">
-        {{newProfileForm.firstname.label(class="block")}}
-        {{newProfileForm.firstname(class="field col-md-4")}}
-    </div>
-    <div class="containers">
-        {{newProfileForm.lastname.label(class="block")}}
-        {{newProfileForm.lastname(class="field col-md-4")}}
-    </div>
-    <div class="containers">
-        {{newProfileForm.gender.label(class="block")}}
-        {{newProfileForm.gender(class="field col-md-4")}}
-    </div>
-    <div class="containers">
-        {{newProfileForm.email.label(class="block")}}
-        {{newProfileForm.email(placeholder = "eg. example@example.com", class="field col-md-4")}}
-    </div>
-    <div class="containers">
-        {{newProfileForm.location.label(class="block")}}
-        {{newProfileForm.location(placeholder="eg. Kingston, Jamaica", class="field col-md-4")}}
-    </div>
-    <div class="containers">
-        {{newProfileForm.bio.label(class="block")}}
-        {{newProfileForm.bio(class="field col-md-4")}}
-    </div>
-    <div class="containers">
-        {{newProfileForm.photo.label(class="block")}}
-        {{newProfileForm.photo(class="field")}}
-    </div>
-    <div class="containers">
-        <input type="submit" value="Add Profile"/>
-    </div>
-</form>
+<div class="form-container border-style">
+    <h1 id="page-title">Add Profile</h1> 
+    <form method = "POST" action="{{ url_for('profile') }}" enctype="multipart/form-data">
+        {{newProfileForm.csrf_token}}
+        <div class="containers">
+            {{newProfileForm.firstname.label(class="block")}}
+            {{newProfileForm.firstname(class="field col-md-8")}}
+        </div>
+        <div class="containers">
+            {{newProfileForm.lastname.label(class="block")}}
+            {{newProfileForm.lastname(class="field col-md-8")}}
+        </div>
+        <div class="containers">
+            {{newProfileForm.gender.label(class="block")}}
+            {{newProfileForm.gender(class="field col-md-8")}}
+        </div>
+        <div class="containers">
+            {{newProfileForm.email.label(class="block")}}
+            {{newProfileForm.email(placeholder = "eg. example@example.com", class="field col-md-8")}}
+        </div>
+        <div class="containers">
+            {{newProfileForm.location.label(class="block")}}
+            {{newProfileForm.location(placeholder="eg. Kingston, Jamaica", class="field col-md-8")}}
+        </div>
+        <div class="containers">
+            {{newProfileForm.bio.label(class="block")}}
+            {{newProfileForm.bio(class="field col-md-8")}}
+        </div>
+        <div class="containers">
+            {{newProfileForm.photo.label(class="block")}}
+            {{newProfileForm.photo(class="field col-md-8")}}
+        </div>
+        <div class="containers">
+            <input type="submit" value="Add Profile" class="btn btn-success"/>
+        </div>
+    </form>
+</div>
+
 {% endblock %}
