@@ -5,7 +5,7 @@ from flask_wtf.file import FileField, FileRequired, FileAllowed
 from wtforms.validators import DataRequired, Email
 from . import allowed_exts
 
-class NewProfileForm(FlaskForm):
+class NewForm(FlaskForm):
     firstname = StringField('First Name', validators=[DataRequired()])
     lastname = StringField("Last Name", validators=[DataRequired()])
     gender = SelectField("Gender", choices=[("None", "Select Gender"), ("Male", "Male"), ("Female", "Female")], validators=[DataRequired()])
